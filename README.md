@@ -14,7 +14,7 @@ submodule for what it actually does.
 
 | Package | Status | Repo |
 |---|---|---|
-| `robot_description` | done | [tiago369/robot_description](https://github.com/tiago369/robot_description) |
+| `unitree_g1_description` | done | [tiago369/unitree_g1_description](https://github.com/tiago369/unitree_g1_description) |
 | `sensor_sim` | planned | -- |
 | `sync_monitor` | planned | -- |
 | `robot_control` | planned | -- |
@@ -31,15 +31,15 @@ needed.
 
 This repo's own [`docker/Dockerfile`](./docker/Dockerfile) targets ROS2
 Jazzy / Ubuntu 24.04 -- the default for packages in this stack.
-`src/robot_description` is the exception: it targets Humble instead, in
+`src/unitree_g1_description` is the exception: it targets Humble instead, in
 its own Dockerfile inside that repo, because its `unitree_ros2`
 dependency is only tested against Foxy/Humble (see
-[its README](https://github.com/tiago369/robot_description#why-a-separate-dockerfile-from-the-rest-of-the-metapackage)
+[its README](https://github.com/tiago369/unitree_g1_description#why-a-separate-dockerfile-from-the-rest-of-the-metapackage)
 for the full reasoning). It's built, tested, and CI'd standalone, and
 deliberately excluded from this workspace's default build:
 
 ```bash
-colcon build --packages-skip robot_description
+colcon build --packages-skip unitree_g1_description
 ```
 
 ## Setup
@@ -51,7 +51,7 @@ cd humanoid_navigation_stack
 ./scripts/docker_run.sh
 ```
 
-For `robot_description` specifically (its own Humble environment, MuJoCo
+For `unitree_g1_description` specifically (its own Humble environment, MuJoCo
 simulation, RViz), see the setup instructions in its own repo.
 
 ## Updating submodule pins

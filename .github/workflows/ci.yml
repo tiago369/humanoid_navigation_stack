@@ -19,5 +19,5 @@ jobs:
         run: |
           source /opt/ros/jazzy/setup.bash
           apt-get update && apt-get install -y --no-install-recommends python3-colcon-common-extensions
-          # robot_description targets Humble in its own repo/CI -- see README.
-          colcon build --packages-skip robot_description
+          # unitree_g1_description targets Humble in its own repo/CI -- see README.
+          colcon build --packages-skip unitree_g1_description
