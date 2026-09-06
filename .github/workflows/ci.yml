@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    container:
+      image: osrf/ros:jazzy-desktop
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: colcon build (Jazzy packages only)
+        shell: bash
+        run: |
+          source /opt/ros/jazzy/setup.bash
+          apt-get update && apt-get install -y --no-install-recommends python3-colcon-common-extensions
+          # robot_description targets Humble in its own repo/CI -- see README.
+          colcon build --packages-skip robot_description

@@ -1,0 +1,3 @@
+[submodule "src/robot_description"]
+	path = src/robot_description
+	url = https://github.com/tiago369/robot_description.git
